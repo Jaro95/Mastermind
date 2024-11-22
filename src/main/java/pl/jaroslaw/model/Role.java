@@ -20,7 +20,7 @@ public class Role implements GrantedAuthority {
     @NotBlank
     private String name;
     @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    private List<User> user;
 
     @Override
     public String getAuthority() {

@@ -21,17 +21,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
+    @Email
     @Size(max = 50)
     private String email;
     @NotBlank
-    @Email
-    @Size(max = 50)
+    @Size(max = 100)
     private String password;
     private boolean enabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
-    @ManyToOne
-    private Game game;
     private String token;
-    private LocalDateTime createAccount;
+    private LocalDateTime createdAccount;
 }

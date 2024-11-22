@@ -24,9 +24,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/**").permitAll()
-//                                .requestMatchers("/mastermind", "/mastermind/login", "/mastermind/registration").permitAll()
-//                                .requestMatchers("/mastermind/game/**").hasAnyRole("USER", "ADMIN", "SUPER_ADMIN")
-//                                .requestMatchers("/mastermind/admin/**").hasAnyRole("ADMIN", "SUPER_ADMIN")
+//                                .requestMatchers("/mastermind","/mastermind/game", "/mastermind/login", "/mastermind/registration",
+//                                        "/mastermind/statistic").permitAll()
+//                                .requestMatchers("/mastermind/user").hasAnyRole("USER", "ADMIN", "SUPER_ADMIN")
+//                                .requestMatchers("/mastermind/admin").hasAnyRole("ADMIN", "SUPER_ADMIN")
                                 .requestMatchers("/images/**", "/css/**", "/js/**", "/WEB-INF/views/**").permitAll()
                                 .anyRequest().authenticated()
                 )
@@ -37,7 +38,7 @@ public class SecurityConfig {
                 )
                 .logout(logout -> logout
                         .logoutUrl("/mastermind/logout")
-                        .logoutSuccessUrl("/mastermind/player")
+                        .logoutSuccessUrl("/mastermind")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                         .permitAll()

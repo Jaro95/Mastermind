@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.jaroslaw.model.User;
-import pl.jaroslaw.service.UserService;
+import pl.jaroslaw.service.ApplicationService;
 
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SpringDataUserDetailsService implements UserDetailsService {
 
-    private final UserService userService;
+    private final ApplicationService userService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

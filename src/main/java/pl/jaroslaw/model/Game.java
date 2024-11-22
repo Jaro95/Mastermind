@@ -3,8 +3,6 @@ package pl.jaroslaw.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
@@ -18,6 +16,6 @@ public class Game {
     private int countGames;
     private int winGames;
     private int loseGames;
-    @OneToMany
-    private List<User> users;
+    @OneToOne
+    private User user;
 }
