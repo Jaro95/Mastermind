@@ -42,8 +42,6 @@
                     Registration</a>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
-                <a href="/mastermind/user" class="w3-bar-item w3-button"><i class="fa fa-mandalorian"></i>
-                    User</a>
                 <a href="/mastermind/logout" class="w3-bar-item w3-button"><i class="fa fa-pencil"></i> Logout</a>
             </sec:authorize>
         </div>
