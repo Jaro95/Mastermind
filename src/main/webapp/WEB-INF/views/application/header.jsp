@@ -5,6 +5,7 @@
   Time: 01:27
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -28,33 +29,26 @@
 
 <div class="w3-top">
     <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a href="/charity/admin" class="w3-bar-item w3-button w3-wide">MASTERMIND</a>
+        <a href="/mastermind" class="w3-bar-item w3-button w3-wide">MASTERMIND</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-            <a href="/charity" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
-            <a href="/charity/admin/donation" class="w3-bar-item w3-button"><i class="fa fa-hand-holding-heart"></i> Game</a>
-            <a href="/charity/admin" class="w3-bar-item w3-button"><i class="fa fa-users-gear"></i> Statistics</a>
-            <a href="/charity/donation" class="w3-bar-item w3-button"><i class="fa fa-jedi-order"></i> Login</a>
-            <a href="/charity/admin/institution" class="w3-bar-item w3-button"><i class="fa fa-fort-awesome"></i> Registration</a>
-            <a href="/charity/admin/category" class="w3-bar-item w3-button"><i class="fa fa-mandalorian"></i> User</a>
-            <a href="/charity/donation/logout" class="w3-bar-item w3-button"><i class="fa fa-pencil"></i> Logout</a>
+            <a href="/mastermind" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+            <a href="/mastermind/game" class="w3-bar-item w3-button"><i class="fa fa-hand-holding-heart"></i>
+                Game</a>
+            <a href="/mastermind/statistic" class="w3-bar-item w3-button"><i class="fa fa-users-gear"></i> Statistics</a>
+            <sec:authorize access="isAnonymous()">
+                <a href="/mastermind/login" class="w3-bar-item w3-button"><i class="fa fa-jedi-order"></i> Login</a>
+                <a href="/mastermind/registration" class="w3-bar-item w3-button"><i class="fa fa-fort-awesome"></i>
+                    Registration</a>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                <a href="/mastermind/user" class="w3-bar-item w3-button"><i class="fa fa-mandalorian"></i>
+                    User</a>
+                <a href="/mastermind/logout" class="w3-bar-item w3-button"><i class="fa fa-pencil"></i> Logout</a>
+            </sec:authorize>
         </div>
-        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
-           onclick="w3_open()">
-            <i class="fa fa-bars"></i>
-        </a>
     </div>
 </div>
 
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium " style="display:none"
-     id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-    <a href="/gowithme/home" onclick="w3_close()" class="fa fa-user w3-button">Home</a>
-    <a href="/gowithme/app/main" onclick="w3_close()" class="w3-bar-item w3-button">App</a>
-    <a href="/gowithme/admin/create-contact" onclick="w3_close()" class="fa fa-user w3-button">Create contact</a>
-    <a href="/gowithme/app/logout" onclick="w3_close()" class="w3-bar-item w3-button">Logout</a>
 
-</nav>
+

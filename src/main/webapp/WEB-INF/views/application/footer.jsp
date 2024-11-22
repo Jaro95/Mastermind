@@ -10,6 +10,5 @@
     <a href="https://github.com/Jaro95" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
     <a href="https://www.linkedin.com/in/jaros%C5%82aw-marciniak-b11a53207/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
 </div>
-</section>
 </body>
 </html>
